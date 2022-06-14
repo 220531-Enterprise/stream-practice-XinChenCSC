@@ -112,8 +112,13 @@ public class StreamTest {
         // Code your Solution here
         students.stream()
         	.filter(s->s.getMobileNumbers().stream()
-        			.anyMatch(num -> num.getNumber().equals("1233") | num.getNumber().equals("1234") )
-        			)
+        			.anyMatch(num -> num.getNumber().equals("1233")  )
+        			 )
+        	.filter(s->s.getMobileNumbers().stream()
+        			.anyMatch(num -> num.getNumber().equals("1234")  )
+        			 )
+        	
+        			
         	.forEach(s -> System.out.println(s.getName()));
         			
         	
@@ -179,7 +184,9 @@ public class StreamTest {
         
         // Code your Solution here
         String name = studentNames
+        		// faster 
         		.stream().map(Object::toString).collect(Collectors.joining(" "));
+        		// slower 
 //        		.map(n -> n.toString())
 //        		.reduce("", String::concat);
         System.out.println(name);
